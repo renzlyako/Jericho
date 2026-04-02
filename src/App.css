@@ -1,0 +1,855 @@
+/* =========================================
+   GLOBAL
+   ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #159328;
+  --dark-green: #0e6b1c;
+  --deep-green: #0a4f14;
+  --olive: #4a5e28;
+  --black: #121212;
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --white: #ffffff;
+  --off-white: #f7f7f2;
+  --border: #e2e2e2;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+body {
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.app {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 76px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 15px;
+  color: var(--text);
+  font-family: sans-serif;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--green);
+}
+
+.nav-link.active {
+  color: var(--green);
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo-img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+.signup-btn {
+  background: var(--black);
+  color: var(--white);
+  padding: 10px 28px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+
+.signup-btn:hover {
+  background: #333;
+}
+
+/* =========================================
+   HERO
+   ========================================= */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+}
+
+/* =========================================
+   QUOTE SECTION
+   ========================================= */
+.quote-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 64px 80px;
+  background: var(--white);
+  align-items: start;
+}
+
+.quote-text {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--text);
+  font-family: 'Georgia', serif;
+}
+
+.quote-body {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+  font-family: sans-serif;
+}
+
+.quote-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: var(--white);
+  padding: 11px 28px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-primary:hover {
+  background: var(--dark-green);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  padding: 10px 28px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 600;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* =========================================
+   WILD BEAUTY
+   ========================================= */
+.wild-beauty {
+  padding: 60px 80px;
+  background: var(--off-white);
+}
+
+.wild-beauty-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.wild-beauty-label {
+  font-size: 13px;
+  font-family: sans-serif;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.wild-beauty-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'Georgia', serif;
+  margin-bottom: 8px;
+}
+
+.wild-beauty-subtitle {
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.wild-beauty-cards {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.wild-card {
+  border-radius: 12px;
+  padding: 28px 24px;
+  color: var(--white);
+}
+
+.wild-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  font-family: 'Georgia', serif;
+}
+
+.wild-card p {
+  font-size: 13px;
+  line-height: 1.65;
+  opacity: 0.9;
+  font-family: sans-serif;
+  margin-bottom: 20px;
+}
+
+.green-card {
+  background: var(--green);
+}
+
+.dark-green-card {
+  background: #1a5e28;
+}
+
+.olive-card {
+  background: #4a5e28;
+}
+
+.wild-card-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-discover {
+  background: #0e6b1c;
+  color: var(--white);
+  padding: 8px 20px;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: background 0.2s;
+}
+
+.btn-discover:hover {
+  background: var(--deep-green);
+}
+
+.btn-discover-sm {
+  background: rgba(255,255,255,0.2);
+  color: var(--white);
+  padding: 7px 18px;
+  font-size: 12px;
+  font-family: sans-serif;
+  border-radius: 20px;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.btn-discover-sm:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+.arrow-right {
+  font-size: 22px;
+  color: var(--white);
+  opacity: 0.8;
+  line-height: 1;
+}
+
+/* =========================================
+   FLY TO THE HORIZON
+   ========================================= */
+.fly-horizon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 80px 80px;
+  background: var(--white);
+  align-items: center;
+}
+
+.fly-horizon-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--green);
+  font-family: 'Georgia', serif;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.fly-horizon-bold {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.fly-horizon-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-family: sans-serif;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.fly-horizon-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.fly-horizon-image {
+  border-radius: 12px;
+  overflow: hidden;
+  height: 380px;
+  background: #c8a84b;
+}
+
+.fly-horizon-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.fly-horizon-image img:hover {
+  transform: scale(1.04);
+}
+
+/* =========================================
+   SOLIDARITY BANNER
+   ========================================= */
+.solidarity-banner {
+  background: var(--off-white);
+  padding: 48px 80px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.solidarity-banner p {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'Georgia', serif;
+  line-height: 1.5;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   ANIMAL CARDS
+   ========================================= */
+.animal-cards-section {
+  padding: 64px 80px;
+  background: var(--white);
+}
+
+.animal-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.animal-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.animal-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+}
+
+.animal-card-body {
+  padding: 16px 0;
+}
+
+.animal-card-label {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: var(--text-muted);
+  font-style: italic;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.animal-card-desc {
+  font-size: 13.5px;
+  color: var(--text);
+  font-family: sans-serif;
+  line-height: 1.65;
+  margin-bottom: 10px;
+}
+
+.animal-card-fact {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  font-family: sans-serif;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.animal-card-link {
+  font-size: 13px;
+  font-family: sans-serif;
+  color: var(--green);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.animal-card-link:hover {
+  color: var(--dark-green);
+  text-decoration: underline;
+}
+
+/* =========================================
+   TESTIMONIALS
+   ========================================= */
+.testimonials-section {
+  padding: 64px 80px;
+  background: var(--off-white);
+}
+
+.testimonials-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: 'Georgia', serif;
+  margin-bottom: 6px;
+}
+
+.testimonials-subtitle {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-family: sans-serif;
+  margin-bottom: 36px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--green);
+  border-radius: 16px;
+  padding: 28px 24px;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  color: #ffd700;
+  font-size: 16px;
+}
+
+.testimonial-text {
+  font-size: 13.5px;
+  font-family: sans-serif;
+  line-height: 1.65;
+  opacity: 0.95;
+  flex: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.4);
+}
+
+.testimonial-name {
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 700;
+}
+
+.testimonial-role {
+  font-size: 12px;
+  font-family: sans-serif;
+  opacity: 0.8;
+}
+
+/* =========================================
+   FREEDOM CTA
+   ========================================= */
+.freedom-cta {
+  background: var(--green);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 72px 80px;
+  align-items: center;
+}
+
+.freedom-cta-left h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--white);
+  font-family: 'Georgia', serif;
+  line-height: 1.3;
+}
+
+.freedom-cta-right p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  font-family: sans-serif;
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.freedom-cta-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.freedom-cta-buttons .btn-primary {
+  background: var(--black);
+  color: var(--white);
+}
+
+.freedom-cta-buttons .btn-primary:hover {
+  background: #333;
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  padding: 10px 28px;
+  font-size: 14px;
+  font-family: sans-serif;
+  font-weight: 600;
+  border: 2px solid var(--white);
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+  background: var(--white);
+  padding: 56px 80px 24px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 260px;
+}
+
+.footer-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+}
+
+.footer-contact p {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+.footer-address-label,
+.footer-contact-label {
+  font-weight: 700;
+  color: var(--text) !important;
+  font-size: 13px;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+.social-icon:hover {
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 64px;
+}
+
+.footer-links-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-col a {
+  font-size: 14px;
+  font-family: sans-serif;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.footer-links-col a:hover {
+  color: var(--green);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.footer-copy {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: var(--text-muted);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+  color: var(--green);
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .quote-section,
+  .fly-horizon,
+  .freedom-cta {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 40px;
+  }
+
+  .wild-beauty-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .animal-cards-grid,
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .navbar {
+    padding: 12px 24px;
+  }
+
+  .wild-beauty,
+  .animal-cards-section,
+  .testimonials-section,
+  .footer {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .solidarity-banner {
+    padding: 40px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-links {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 13px;
+  }
+
+  .hero {
+    height: 300px;
+  }
+
+  .quote-section,
+  .fly-horizon,
+  .freedom-cta {
+    padding: 36px 20px;
+  }
+
+  .wild-beauty,
+  .animal-cards-section,
+  .testimonials-section {
+    padding: 36px 20px;
+  }
+
+  .wild-beauty-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .animal-cards-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    padding: 40px 20px 20px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-links-group {
+    gap: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .solidarity-banner {
+    padding: 36px 20px;
+  }
+
+  .solidarity-banner p {
+    font-size: 17px;
+  }
+
+  .fly-horizon-image {
+    height: 240px;
+  }
+
+  .freedom-cta-left h2 {
+    font-size: 28px;
+  }
+}
